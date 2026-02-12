@@ -1,0 +1,30 @@
+{
+  "name": "web3-dashboard",
+  "version": "1.0.0",
+  "description": "Web3 实时监控仪表板",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "dev": "npx serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web3",
+    "dashboard",
+    "crypto",
+    "ethereum",
+    "blockchain",
+    "portfolio",
+    "trading"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/web3-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/web3-dashboard/issues"
+  },
+  "homepage": "https://github.com/yourusername/web3-dashboard"
+}

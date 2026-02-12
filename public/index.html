@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 实时监控仪表板</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Web3 Dashboard</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <span class="nav-icon">◉</span>
+                    <span>仪表板</span>
+                </a>
+                <a href="#" class="nav-item" data-section="portfolio">
+                    <span class="nav-icon">◈</span>
+                    <span>持仓管理</span>
+                </a>
+                <a href="#" class="nav-item" data-section="hot-tokens">
+                    <span class="nav-icon">🔥</span>
+                    <span>热点扫描</span>
+                </a>
+                <a href="#" class="nav-item" data-section="prediction">
+                    <span class="nav-icon">◎</span>
+                    <span>预测市场</span>
+                </a>
+                <a href="#" class="nav-item" data-section="alerts">
+                    <span class="nav-icon">⚡</span>
+                    <span>价格警报</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings">
+                    <span class="nav-icon">⚙</span>
+                    <span>设置</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>实时连接</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 仪表板首页 -->
+            <section id="dashboard" class="section active">
+                <div class="section-header">
+                    <h1>仪表板总览</h1>
+                    <div class="time-display" id="current-time">--:--:--</div>
+                </div>
+                
+                <!-- 核心指标卡片 -->
+                <div class="metrics-grid">
+                    <div class="metric-card primary">
+                        <div class="metric-icon">Ξ</div>
+                        <div class="metric-info">
+                            <span class="metric-label">总资产 (ETH)</span>
+                            <span class="metric-value" id="total-eth">--</span>
+                            <span class="metric-change positive" id="total-pnl">--</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">$</div>
+                        <div class="metric-info">
+                            <span class="metric-label">总资产 (USD)</span>
+                            <span class="metric-value" id="total-usd">--</span>
+                            <span class="metric-change" id="usd-24h">--</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">◉</div>
+                        <div class="metric-info">
+                            <span class="metric-label">持仓数量</span>
+                            <span class="metric-value" id="position-count">--</span>
+                            <span class="metric-sublabel">个代币</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">⚡</div>
+                        <div class="metric-info">
+                            <span class="metric-label">Gas 余额</span>
+                            <span class="metric-value" id="gas-balance">--</span>
+                            <span class="metric-sublabel">ETH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 风险指标 -->
+                <div class="risk-panel">
+                    <h2>风险指标</h2>
+                    <div class="risk-grid">
+                        <div class="risk-item">
+                            <span class="risk-label">风险等级</span>
+                            <span class="risk-value medium" id="risk-level">中</span>
+                        </div>
+                        <div class="risk-item">
+                            <span class="risk-label">持仓集中度</span>
+                            <div class="concentration-bar">
+                                <div class="concentration-fill" id="concentration-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="risk-value" id="concentration">--</span>
+                        </div>
+                        <div class="risk-item">
+                            <span class="risk-label">市场情绪</span>
+                            <span class="risk-value positive" id="market-sentiment">--</span>
+                        </div>
+                        <div class="risk-item">
+                            <span class="risk-label">24h 热点</span>
+                            <span class="risk-value" id="hot-count">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 快速操作 -->
+                <div class="quick-actions">
+                    <h2>快速操作</h2>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="refreshData()">
+                            <span>🔄</span> 刷新数据
+                        </button>
+                        <button class="action-btn" onclick="exportData()">
+                            <span>📊</span> 导出报表
+                        </button>
+                        <button class="action-btn" onclick="openSettings()">
+                            <span>⚙</span> 设置
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 持仓管理 -->
+            <section id="portfolio" class="section">
+                <div class="section-header">
+                    <h1>持仓管理</h1>
+                    <div class="filter-controls">
+                        <select id="sort-select" onchange="sortPortfolio()">
+                            <option value="pnl-desc">盈亏 ↓</option>
+                            <option value="pnl-asc">盈亏 ↑</option>
+                            <option value="value-desc">价值 ↓</option>
+                            <option value="value-asc">价值 ↑</option>
+                            <option value="name-asc">名称 A-Z</option>
+                        </select>
+                        <input type="text" id="search-input" placeholder="搜索代币..." oninput="filterPortfolio()">
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table class="data-table" id="portfolio-table">
+                        <thead>
+                            <tr>
+                                <th>代币</th>
+                                <th>数量</th>
+                                <th>入场价</th>
+                                <th>当前价</th>
+                                <th>持仓价值</th>
+                                <th>盈亏</th>
+                                <th>信号</th>
+                            </tr>
+                        </thead>
+                        <tbody id="portfolio-body">
+                            <!-- 数据动态加载 -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 热点扫描 -->
+            <section id="hot-tokens" class="section">
+                <div class="section-header">
+                    <h1>热点代币扫描</h1>
+                    <div class="signal-filters">
+                        <button class="filter-btn active" data-signal="all">全部</button>
+                        <button class="filter-btn buy" data-signal="BUY">买入信号</button>
+                        <button class="filter-btn watch" data-signal="WATCH">观察</button>
+                        <button class="filter-btn sell" data-signal="SELL">卖出信号</button>
+                    </div>
+                </div>
+                
+                <div class="hot-cards" id="hot-tokens-container">
+                    <!-- 热点代币卡片动态加载 -->
+                </div>
+
+                <div class="analysis-panel">
+                    <h2>市场分析</h2>
+                    <div class="analysis-grid">
+                        <div class="analysis-item">
+                            <span class="analysis-label">市场情绪</span>
+                            <span class="analysis-value" id="analysis-sentiment">--</span>
+                        </div>
+                        <div class="analysis-item">
+                            <span class="analysis-label">买入信号</span>
+                            <span class="analysis-value positive" id="buy-signals">--</span>
+                        </div>
+                        <div class="analysis-item">
+                            <span class="analysis-label">观察信号</span>
+                            <span class="analysis-value" id="watch-signals">--</span>
+                        </div>
+                        <div class="analysis-item">
+                            <span class="analysis-label">卖出信号</span>
+                            <span class="analysis-value negative" id="sell-signals">--</span>
+                        </div>
+                        <div class="analysis-item full">
+                            <span class="analysis-label">24h 涨幅榜</span>
+                            <span class="analysis-value" id="top-gainers">--</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 预测市场 -->
+            <section id="prediction" class="section">
+                <div class="section-header">
+                    <h1>预测市场机会</h1>
+                    <span class="section-badge">Polymarket 热门</span>
+                </div>
+                
+                <div class="prediction-grid" id="prediction-container">
+                    <!-- 预测市场动态加载 -->
+                </div>
+            </section>
+
+            <!-- 价格警报 -->
+            <section id="alerts" class="section">
+                <div class="section-header">
+                    <h1>价格警报</h1>
+                    <span class="section-badge" id="alert-count">0 个警报</span>
+                </div>
+                
+                <div class="alerts-container">
+                    <div class="alerts-status">
+                        <div class="alert-status-item hit">
+                            <span class="status-icon">✓</span>
+                            <span class="status-count" id="hit-count">0</span>
+                            <span class="status-label">已触发</span>
+                        </div>
+                        <div class="alert-status-item near">
+                            <span class="status-icon">≈</span>
+                            <span class="status-count" id="near-count">0</span>
+                            <span class="status-label">接近目标</span>
+                        </div>
+                        <div class="alert-status-item warning">
+                            <span class="status-icon">!</span>
+                            <span class="status-count" id="warning-count">0</span>
+                            <span class="status-label">警告</span>
+                        </div>
+                        <div class="alert-status-item far">
+                            <span class="status-icon">○</span>
+                            <span class="status-count" id="far-count">0</span>
+                            <span class="status-label">远离目标</span>
+                        </div>
+                    </div>
+                    
+                    <div class="alerts-table-container">
+                        <table class="data-table alerts-table" id="alerts-table">
+                            <thead>
+                                <tr>
+                                    <th>代币</th>
+                                    <th>目标价</th>
+                                    <th>操作</th>
+                                    <th>状态</th>
+                                </tr>
+                            </thead>
+                            <tbody id="alerts-body">
+                                <!-- 警报数据动态加载 -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="next-actions">
+                        <h3>下一步行动</h3>
+                        <ul id="next-actions-list">
+                            <!-- 行动建议动态加载 -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 设置 -->
+            <section id="settings" class="section">
+                <div class="section-header">
+                    <h1>设置</h1>
+                </div>
+                
+                <div class="settings-container">
+                    <div class="settings-group">
+                        <h3>数据刷新</h3>
+                        <div class="setting-item">
+                            <label>自动刷新间隔</label>
+                            <select id="refresh-interval">
+                                <option value="30000">30 秒</option>
+                                <option value="60000" selected>1 分钟</option>
+                                <option value="300000">5 分钟</option>
+                                <option value="600000">10 分钟</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-group">
+                        <h3>显示设置</h3>
+                        <div class="setting-item">
+                            <label>货币显示</label>
+                            <select id="currency-display">
+                                <option value="eth">ETH</option>
+                                <option value="usd">USD</option>
+                                <option value="both">两者都显示</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>主题</label>
+                            <select id="theme-select">
+                                <option value="dark">深色</option>
+                                <option value="light">浅色</option>
+                                <option value="auto">跟随系统</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-group">
+                        <h3>风险阈值</h3>
+                        <div class="setting-item">
+                            <label>止盈通知 (%)</label>
+                            <input type="number" id="take-profit-threshold" value="20">
+                        </div>
+                        <div class="setting-item">
+                            <label>止损通知 (%)</label>
+                            <input type="number" id="stop-loss-threshold" value="-15">
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="saveSettings()">保存设置</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+    
+    <script src="/app.js"></script>
+</body>
+</html>
