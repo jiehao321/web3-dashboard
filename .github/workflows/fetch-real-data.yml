@@ -1,0 +1,57 @@
+name: Fetch Real-Time Wallet Data
+
+on:
+  schedule:
+    # 每 5 分钟获取一次真实数据
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [master]
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch real-time data from Base
+        run: |
+          node scripts/fetch-data.js
+        env:
+          BASESCAN_API_KEY: ${{ secrets.BASESCAN_API_KEY }}
+
+      - name: Commit and push if changed
+        run: |
+          git config user.email "bot@web3-dashboard.com"
+          git config user.name "Web3 Dashboard Bot"
+          
+          if git diff --quiet public/; then
+            echo "No changes to commit"
+          else
+            git add public/
+            git commit -m "Auto-refresh wallet data: $(date -u +%Y-%m-%dT%H:%M:%S)"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: fetch-data
+    if: github.event_name == 'push'
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
