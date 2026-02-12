@@ -2,56 +2,80 @@
 
 一个专业、美观、实用的 Web3 实时监控仪表板，展示持仓状态、热点代币、预测市场和风险指标。
 
-![Dashboard Preview](preview.png)
+🌐 **在线预览**: [https://niuma-ai.github.io/web3-dashboard](https://niuma-ai.github.io/web3-dashboard)
 
 ## ✨ 功能特性
 
 ### 📊 仪表板首页
-- 总资产价值（ETH/USD 双显示）
-- 总盈亏百分比
-- 24h 变化趋势
-- 实时风险指标
+- ✅ 总资产价值（ETH/USD 双显示）
+- ✅ 总盈亏百分比
+- ✅ 24h 变化趋势
+- ✅ 实时风险指标
 
 ### 💼 持仓管理
-- 代币列表（名称、数量、PnL）
-- 可排序（盈亏/价值/名称）
-- 可筛选搜索
-- 止盈/止损状态标识
+- ✅ 代币列表（名称、数量、PnL）
+- ✅ 可排序（盈亏/价值/名称）
+- ✅ 可筛选搜索
+- ✅ 止盈/止损状态标识
 
 ### 🔥 热点扫描
-- DexScreener Top 10 代币
-- 24h 涨跌幅度
-- 流动性指标
-- 买入/观察/卖出信号
+- ✅ DexScreener Top 10 代币
+- ✅ 24h 涨跌幅度
+- ✅ 流动性指标
+- ✅ 买入/观察/卖出信号
 
 ### 🎯 预测市场
-- Polymarket 热门预测
-- 当前赔率显示
-- 模拟仓位建议
+- ✅ Polymarket 热门预测
+- ✅ 当前赔率显示
+- ✅ 模拟仓位建议
 
 ### ⚡ 价格警报
-- 止盈/止损提醒
-- 接近目标通知
-- 下一步行动建议
+- ✅ 止盈/止损提醒
+- ✅ 接近目标通知
+- ✅ 下一步行动建议
 
 ### ⚙ 设置
-- 自动刷新间隔
-- 货币显示偏好
-- 风险阈值设置
+- ✅ 自动刷新间隔（30秒/1分钟/5分钟/10分钟）
+- ✅ 货币显示偏好
+- ✅ 风险阈值设置
 
-## 🚀 快速开始
+## 🚀 快速部署
 
-### 本地运行
+### 方式一：一键部署到 GitHub Pages
 
 ```bash
-# 克隆仓库
-git clone https://github.com/yourusername/web3-dashboard.git
+# 克隆并部署
+git clone https://github.com/niuma-ai/web3-dashboard.git
 cd web3-dashboard
 
-# 使用 Python 启动本地服务器
+# 运行部署脚本（替换为你的 GitHub 用户名）
+./deploy.sh yourusername
+
+# 启用 Pages
+# 访问: https://github.com/yourusername/web3-dashboard/settings/pages
+# Source: main branch → Save
+```
+
+### 方式二：手动推送
+
+```bash
+# 添加远程仓库
+git remote add origin https://github.com/yourusername/web3-dashboard.git
+
+# 推送代码
+git branch -M main
+git push -u origin main
+
+# 启用 Pages（Settings → Pages → main branch → Save）
+```
+
+### 方式三：本地预览
+
+```bash
+# Python
 python3 -m http.server 8080
 
-# 或使用 Node.js
+# Node.js
 npx serve .
 ```
 
@@ -110,9 +134,29 @@ vercel
 3. 输出目录: public
 4. 部署
 
-## 🔧 自定义
+## 🔄 定时自动更新
 
-### 修改 ETH 价格
+### Cron 定时任务（每5分钟刷新）
+
+```bash
+# 编辑 crontab
+crontab -e
+
+# 添加定时任务
+*/5 * * * * cd /path/to/web3-dashboard && git pull origin main >> /var/log/web3-dashboard.log 2>&1
+```
+
+### GitHub Actions 自动刷新
+
+项目已配置 `.github/workflows/deploy.yml`，每次推送自动部署。
+
+### 本地自动刷新
+
+在设置页面可配置自动刷新间隔：
+- 30 秒
+- 1 分钟（默认）
+- 5 分钟
+- 10 分钟
 
 在 `app.js` 中修改：
 ```javascript
