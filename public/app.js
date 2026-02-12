@@ -572,3 +572,54 @@ document.addEventListener('DOMContentLoaded', () => {
     
     showToast('Web3 Dashboard 已启动', 'success');
 });
+
+
+// ==================== Auto-Refresh ====================
+function initAutoRefresh() {
+    // Check if data-fetcher.js is available
+    if (typeof Web3Dashboard !== "undefined") {
+        Web3Dashboard.initAutoRefresh();
+        
+        // Override data store methods
+        DataStore.refreshData = async function() {
+            const data = await Web3Dashboard.fetchAllData();
+            this.portfolio = data.portfolio;
+            this.hotTokens = data.hotTokens;
+            this.priceAlerts = data.priceAlerts;
+            this.lastUpdate = new Date();
+            
+            // Update UI
+            updateDashboard();
+            
+            return this;
+        };
+        
+        // Set up update callback
+        window.onDataUpdate = function(data) {
+            DataStore.portfolio = data.portfolio;
+            DataStore.hotTokens = data.hotTokens;
+            DataStore.lastUpdate = new Date();
+            updateDashboard();
+            updateLastUpdateTime();
+        };
+        
+        console.log("✅ Real-time data sync enabled");
+    } else {
+        console.log("⚠️ Data fetcher not available, using static data");
+        DataStore.refreshData = async function() {
+            this.lastUpdate = new Date();
+            updateDashboard();
+            return this;
+        };
+    }
+}
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", function() {
+    // Wait a bit for data to load
+    setTimeout(function() {
+        initAutoRefresh();
+        updateLastUpdateTime();
+    }, 1000);
+});
+

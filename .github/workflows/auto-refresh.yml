@@ -1,0 +1,64 @@
+name: Auto Refresh Data
+
+on:
+  schedule:
+    # 每 5 分钟刷新一次数据
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/**'
+      - 'public/**'
+
+jobs:
+  refresh-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install axios dotenv
+
+      - name: Fetch latest portfolio data
+        run: |
+          # 模拟从真实数据源获取数据
+          # 实际部署时，这里应该从 Base 链或 API 获取真实数据
+          echo "{
+            \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",
+            \"portfolio\": $(cat public/portfolio.json 2>/dev/null || echo '[]')
+          }" > public/portfolio-data.json
+          
+          # 更新热点代币
+          curl -s https://api.dexscreener.com/latest/dex/tokens 2>/dev/null | \
+            jq '{timestamp: "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'", hot_tokens: .pairs[:20]}' > public/hot-tokens-data.json 2>/dev/null || \
+            echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","hot_tokens":[]}' > public/hot-tokens-data.json
+
+      - name: Commit and push if changed
+        run: |
+          git config user.email "bot@web3-dashboard.com"
+          git config user.name "Web3 Dashboard Bot"
+          
+          if git diff --quiet; then
+            echo "No changes to commit"
+          else
+            git add public/
+            git commit -m "Auto-refresh data: $(date -u +%Y-%m-%dT%H:%M:%S)"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify-deployment:
+    runs-on: ubuntu-latest
+    needs: refresh-data
+    if: github.event_name == 'schedule'
+    steps:
+      - name: Dispatch deployment event
+        run: |
+          echo "Data refreshed at $(date)"
