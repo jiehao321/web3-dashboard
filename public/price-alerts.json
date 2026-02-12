@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-02-12T09:42:00Z",
+  "price_alerts": {
+    "AVAX": { "target": 0.035, "action": "SELL", "status": "HIT - 止盈已执行" },
+    "APT": { "target": 0.0085, "action": "SELL", "status": "HIT - 止盈已执行" },
+    "BOME": { "target": 0.0000045, "action": "SELL", "status": "HIT - 止盈已执行" },
+    "MKR": { "target": 0.022, "action": "SELL", "status": "NEAR - 准备止盈" },
+    "MATIC": { "target": 0.0009, "action": "SELL", "status": "NEAR - 准备止盈" },
+    "COMP": { "target": 0.0045, "action": "SELL", "status": "NEAR - 准备止盈" },
+    "SNX": { "target": 0.003, "action": "SELL", "status": "NEAR - 准备止盈" },
+    "MEME": { "target": 0.000015, "action": "SELL", "status": "WARNING - 建议减持" },
+    "GPT": { "target": 0.0001, "action": "BUY", "status": "FAR - 继续持有" },
+    "SHUTDOWN": { "target": 0.001, "action": "BUY", "status": "WATCH - 热点监控" },
+    "ANTS": { "target": 0.0005, "action": "BUY", "status": "WATCH - 热点监控" }
+  },
+  "next_actions": [
+    "监控 MKR/MATIC/COMP/SNX 接近止盈线",
+    "观察 MEME 基本面变化",
+    "持续监控 SHUTDOWN/ANTS 热点代币"
+  ]
+}

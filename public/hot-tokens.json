@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-02-12T09:37:00Z",
+  "hot_tokens": [
+    {"symbol": "SHUTDOWN", "change24h": 34003, "liquidity": 1700000, "signal": "BUY"},
+    {"symbol": "Pepstein", "change24h": 13970, "liquidity": 603000, "signal": "BUY"},
+    {"symbol": "SHARK", "change24h": 26208, "liquidity": 1600000, "signal": "BUY"},
+    {"symbol": "ANTS", "change24h": 24048, "liquidity": 614000, "signal": "BUY"},
+    {"symbol": "MooNutPeng", "change24h": 47977, "liquidity": 2500000, "signal": "BUY"},
+    {"symbol": "PandaCock", "change24h": 44430, "liquidity": 1900000, "signal": "BUY"},
+    {"symbol": "delusional", "change24h": 22211, "liquidity": 1500000, "signal": "BUY"},
+    {"symbol": "Animals", "change24h": 56470, "liquidity": 3200000, "signal": "BUY"},
+    {"symbol": "ApeLiquid", "change24h": 20022, "liquidity": 1400000, "signal": "WATCH"},
+    {"symbol": "Preguntale", "change24h": 22185, "liquidity": 1700000, "signal": "WATCH"},
+    {"symbol": "MAYA", "change24h": 11469, "liquidity": 402000, "signal": "WATCH"},
+    {"symbol": "DYN2HTC", "change24h": 7702, "liquidity": 1800000, "signal": "WATCH"},
+    {"symbol": "DOG", "change24h": 10895, "liquidity": 698000, "signal": "WATCH"},
+    {"symbol": "KimJuAe", "change24h": 19456, "liquidity": 865000, "signal": "WATCH"},
+    {"symbol": "soluna", "change24h": 48692, "liquidity": 4500000, "signal": "WATCH"},
+    {"symbol": "BIG", "change24h": 47113, "liquidity": 4100000, "signal": "WATCH"},
+    {"symbol": "wpSHARK", "change24h": 2357, "liquidity": 10000, "signal": "SELL"},
+    {"symbol": "DYNNOBODY", "change24h": 232, "liquidity": 24000, "signal": "SELL"},
+    {"symbol": "MEMDEX", "change24h": 115, "liquidity": 11000, "signal": "SELL"},
+    {"symbol": "v2ABSTER", "change24h": 220, "liquidity": 8900, "signal": "SELL"}
+  ],
+  "summary": "市场热度: 高",
+  "analysis": {
+    "market_sentiment": "极度看涨",
+    "top_gainers_24h": ["Animals (56470%)", "MooNutPeng (47977%)", "BIG (47113%)", "PandaCock (44430%)", "SHUTDOWN (34003%)"],
+    "buy_signals": 8,
+    "watch_signals": 8,
+    "sell_signals": 4,
+    "average_liquidity": 1432000,
+    "risk_level": "高"
+  }
+}
