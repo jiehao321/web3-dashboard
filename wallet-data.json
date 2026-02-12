@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-02-12T10:30:58.032Z",
+  "wallet": "0x7854C27577d6d6A1b487db32e0e10E87E9f52183",
+  "network": "Base Mainnet",
+  "ethBalance": {
+    "symbol": "ETH",
+    "name": "Ethereum",
+    "balance": "0.001562366012137899",
+    "balanceWei": "1562366012137899"
+  },
+  "tokens": [],
+  "mbc20": [
+    {
+      "symbol": "GPT",
+      "balance": "100",
+      "type": "MBC-20"
+    },
+    {
+      "symbol": "LLM",
+      "balance": "100",
+      "type": "MBC-20"
+    },
+    {
+      "symbol": "AGI",
+      "balance": "100",
+      "type": "MBC-20"
+    },
+    {
+      "symbol": "NLM",
+      "balance": "100",
+      "type": "MBC-20"
+    },
+    {
+      "symbol": "UNI",
+      "balance": "100",
+      "type": "MBC-20"
+    }
+  ],
+  "transactions": [],
+  "summary": {
+    "totalValueUsd": 0,
+    "tokenCount": 5
+  }
+}

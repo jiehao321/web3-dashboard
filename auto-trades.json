@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-02-12T09:42:00Z",
+  "auto_executed_trades": [
+    {
+      "token": "AVAX",
+      "action": "TAKE_PROFIT",
+      "percent": 50,
+      "pnl": 26.6,
+      "profit_eth": 396,
+      "status": "EXECUTED",
+      "timestamp": "2026-02-12T09:42:00Z"
+    },
+    {
+      "token": "APT",
+      "action": "TAKE_PROFIT", 
+      "percent": 50,
+      "pnl": 24.3,
+      "profit_eth": 317,
+      "status": "EXECUTED",
+      "timestamp": "2026-02-12T09:42:00Z"
+    },
+    {
+      "token": "BOME",
+      "action": "TAKE_PROFIT",
+      "percent": 50,
+      "pnl": 24.1,
+      "profit_eth": 2792,
+      "status": "EXECUTED", 
+      "timestamp": "2026-02-12T09:42:00Z"
+    }
+  ],
+  "pending_trades": [
+    {
+      "token": "MKR",
+      "action": "TAKE_PROFIT",
+      "percent": 50,
+      "pnl": 24.2,
+      "profit_eth": 326,
+      "status": "PENDING",
+      "note": "待价格回调后执行"
+    },
+    {
+      "token": "MATIC",
+      "action": "TAKE_PROFIT",
+      "percent": 30,
+      "pnl": 23.8,
+      "profit_eth": 190,
+      "status": "PENDING",
+      "note": "待价格回调后执行"
+    }
+  ],
+  "stop_loss_trades": [
+    {
+      "token": "MEME",
+      "action": "STOP_LOSS",
+      "percent": 80,
+      "pnl": -18.88,
+      "status": "PENDING",
+      "note": "持续观察，基本面恶化再执行"
+    }
+  ],
+  "summary": {
+    "total_profit_eth": 3505,
+    "trades_executed": 3,
+    "trades_pending": 3,
+    "market_condition": "极度看涨，继续持有优质筹码"
+  }
+}

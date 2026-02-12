@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-02-12T10:30:58.032Z",
+  "wallet": "0x7854C27577d6d6A1b487db32e0e10E87E9f52183",
+  "summary": {
+    "totalValueUsd": 0,
+    "tokenCount": 5
+  },
+  "tokens": [
+    {
+      "token": "GPT",
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
+      "signal": "HOLD"
+    },
+    {
+      "token": "LLM",
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
+      "signal": "HOLD"
+    },
+    {
+      "token": "AGI",
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
+      "signal": "HOLD"
+    },
+    {
+      "token": "NLM",
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
+      "signal": "HOLD"
+    },
+    {
+      "token": "UNI",
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
+      "signal": "HOLD"
+    }
+  ],
+  "total_value_eth": 0.001562366012137899,
+  "total_pnl_percent": 0
+}
