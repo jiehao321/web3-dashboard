@@ -1,223 +1,52 @@
 {
-  "timestamp": "2026-02-12T09:38:26Z",
-  "portfolio": [
+  "timestamp": "2026-02-12T10:30:58.032Z",
+  "wallet": "0x7854C27577d6d6A1b487db32e0e10E87E9f52183",
+  "summary": {
+    "totalValueUsd": 0,
+    "tokenCount": 5
+  },
+  "tokens": [
     {
       "token": "GPT",
-      "amount": 1000000,
-      "entryPrice": 5e-05,
-      "currentPrice": 4.7325557e-05,
-      "pnl": -5.35,
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
       "signal": "HOLD"
     },
     {
       "token": "LLM",
-      "amount": 1500000,
-      "entryPrice": 3e-05,
-      "currentPrice": 2.5668048e-05,
-      "pnl": -14.44,
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
       "signal": "HOLD"
     },
     {
       "token": "AGI",
-      "amount": 800000,
-      "entryPrice": 0.0001,
-      "currentPrice": 9.9621461e-05,
-      "pnl": -0.38,
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
       "signal": "HOLD"
     },
     {
       "token": "NLM",
-      "amount": 2000000,
-      "entryPrice": 2e-05,
-      "currentPrice": 1.6397672e-05,
-      "pnl": -18.01,
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
       "signal": "HOLD"
     },
     {
       "token": "UNI",
-      "amount": 100000,
-      "entryPrice": 0.005,
-      "currentPrice": 0.005376976209,
-      "pnl": 7.54,
-      "signal": "HOLD"
-    },
-    {
-      "token": "COMP",
-      "amount": 150000,
-      "entryPrice": 0.003,
-      "currentPrice": 0.003620892173,
-      "pnl": 20.7,
-      "signal": "HOLD"
-    },
-    {
-      "token": "AAVE",
-      "amount": 60000,
-      "entryPrice": 0.008,
-      "currentPrice": 0.007562566613,
-      "pnl": -5.47,
-      "signal": "HOLD"
-    },
-    {
-      "token": "MKR",
-      "amount": 35000,
-      "entryPrice": 0.015,
-      "currentPrice": 0.01863651096,
-      "pnl": 24.24,
-      "signal": "HOLD"
-    },
-    {
-      "token": "SNX",
-      "amount": 250000,
-      "entryPrice": 0.002,
-      "currentPrice": 0.002442265411,
-      "pnl": 22.11,
-      "signal": "HOLD"
-    },
-    {
-      "token": "ARB",
-      "amount": 600000,
-      "entryPrice": 0.0008,
-      "currentPrice": 0.000913276843,
-      "pnl": 14.16,
-      "signal": "HOLD"
-    },
-    {
-      "token": "OP",
-      "amount": 350000,
-      "entryPrice": 0.0015,
-      "currentPrice": 0.001343076561,
-      "pnl": -10.46,
-      "signal": "HOLD"
-    },
-    {
-      "token": "MATIC",
-      "amount": 850000,
-      "entryPrice": 0.0006,
-      "currentPrice": 0.000743058388,
-      "pnl": 23.84,
-      "signal": "HOLD"
-    },
-    {
-      "token": "AVAX",
-      "amount": 25000,
-      "entryPrice": 0.025,
-      "currentPrice": 0.031650294306,
-      "pnl": 26.6,
-      "signal": "HOLD"
-    },
-    {
-      "token": "APT",
-      "amount": 85000,
-      "entryPrice": 0.006,
-      "currentPrice": 0.007458302688,
-      "pnl": 24.31,
-      "signal": "HOLD"
-    },
-    {
-      "token": "PEPE",
-      "amount": 5000000000,
-      "entryPrice": 1e-06,
-      "currentPrice": 1.140739e-06,
-      "pnl": 14.07,
-      "signal": "HOLD"
-    },
-    {
-      "token": "WIF",
-      "amount": 250000,
-      "entryPrice": 0.002,
-      "currentPrice": 0.001798880378,
-      "pnl": -10.06,
-      "signal": "HOLD"
-    },
-    {
-      "token": "BOME",
-      "amount": 1500000000,
-      "entryPrice": 3e-06,
-      "currentPrice": 3.723394e-06,
-      "pnl": 24.11,
-      "signal": "HOLD"
-    },
-    {
-      "token": "SATS",
-      "amount": 5000000000,
-      "entryPrice": 1e-07,
-      "currentPrice": 1.03656e-07,
-      "pnl": 3.66,
-      "signal": "HOLD"
-    },
-    {
-      "token": "RATS",
-      "amount": 8000000000,
-      "entryPrice": 1e-07,
-      "currentPrice": 1.21718e-07,
-      "pnl": 21.72,
-      "signal": "HOLD"
-    },
-    {
-      "token": "ORDI",
-      "amount": 10000,
-      "entryPrice": 0.05,
-      "currentPrice": 0.059017130713,
-      "pnl": 18.03,
-      "signal": "HOLD"
-    },
-    {
-      "token": "RUNES",
-      "amount": 500000,
-      "entryPrice": 0.001,
-      "currentPrice": 0.001039078107,
-      "pnl": 3.91,
-      "signal": "HOLD"
-    },
-    {
-      "token": "CATS",
-      "amount": 4000000000,
-      "entryPrice": 1e-06,
-      "currentPrice": 1.02414e-06,
-      "pnl": 2.41,
-      "signal": "HOLD"
-    },
-    {
-      "token": "MEME",
-      "amount": 2500000,
-      "entryPrice": 2e-05,
-      "currentPrice": 1.6223244e-05,
-      "pnl": -18.88,
-      "signal": "HOLD"
-    },
-    {
-      "token": "AI16Z",
-      "amount": 500000,
-      "entryPrice": 0.001,
-      "currentPrice": 0.001174664376,
-      "pnl": 17.47,
-      "signal": "HOLD"
-    },
-    {
-      "token": "VIRTUAL",
-      "amount": 300000,
-      "entryPrice": 0.002,
-      "currentPrice": 0.001893533802,
-      "pnl": -5.32,
-      "signal": "HOLD"
-    },
-    {
-      "token": "TRUMP",
-      "amount": 150000,
-      "entryPrice": 0.05,
-      "currentPrice": 0.042886834384,
-      "pnl": -14.23,
-      "signal": "HOLD"
-    },
-    {
-      "token": "MELANIA",
-      "amount": 200000,
-      "entryPrice": 0.03,
-      "currentPrice": 0.025868477655,
-      "pnl": -13.77,
+      "amount": "100",
+      "entryPrice": 0,
+      "currentPrice": 0,
+      "pnl": 0,
       "signal": "HOLD"
     }
   ],
-  "total_value_eth": 37310.07701275,
-  "total_pnl_percent": 2.87
+  "total_value_eth": 0.001562366012137899,
+  "total_pnl_percent": 0
 }
