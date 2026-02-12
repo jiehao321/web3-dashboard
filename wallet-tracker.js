@@ -20,7 +20,7 @@ let lastFetch = null;
 async function fetchWalletData() {
   try {
     const response = await fetch(
-      CONFIG.baseUrl + 'public/wallet-data.json?t=' + Date.now()
+      CONFIG.baseUrl + 'wallet-data.json?t=' + Date.now()
     );
     
     if (response.ok) {
