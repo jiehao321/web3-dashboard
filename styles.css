@@ -680,6 +680,245 @@ body {
     transition: width 0.5s ease;
 }
 
+/* Prediction Metrics - 交易分析指标 */
+.prediction-metrics {
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.metric-row:last-child {
+    border-bottom: none;
+}
+
+.metric-row .metric-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.metric-row .metric-value {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.metric-row .metric-value.positive {
+    color: var(--accent-success);
+}
+
+.metric-row .metric-value.negative {
+    color: var(--accent-danger);
+}
+
+.prediction-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.prediction-footer .volume {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.signal-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.signal-tag.buy {
+    background: rgba(63, 185, 80, 0.15);
+    color: var(--accent-success);
+}
+
+.signal-tag.watch {
+    background: rgba(210, 153, 34, 0.15);
+    color: var(--accent-warning);
+}
+
+/* Fund Management Panel - 资金管理面板 */
+.fund-management-panel {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.fund-management-panel h2 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.fund-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.fund-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+.fund-label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.fund-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.fund-value.positive {
+    color: var(--accent-success);
+}
+
+.fund-value.negative {
+    color: var(--accent-danger);
+}
+
+/* EV Explanation - 期望值说明 */
+.ev-explanation {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-top: 24px;
+}
+
+.ev-explanation h3 {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.ev-formula {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.ev-formula code {
+    font-family: 'Fira Code', monospace;
+    color: var(--accent-primary);
+}
+
+.ev-explanation p {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.highlight-positive {
+    color: var(--accent-success);
+    font-weight: 600;
+}
+
+.highlight-negative {
+    color: var(--accent-danger);
+    font-weight: 600;
+}
+
+/* 赔率区间提示 */
+.odds-range {
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.odds-range.valid {
+    background: rgba(63, 185, 80, 0.1);
+    color: var(--accent-success);
+}
+
+.odds-range.invalid {
+    background: rgba(210, 153, 34, 0.1);
+    color: var(--accent-warning);
+}
+
+/* 赔率警告样式 */
+.odds-value.warning {
+    color: var(--accent-warning) !important;
+    animation: pulse-warning 2s infinite;
+}
+
+@keyframes pulse-warning {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* 置信度样式 */
+.confidence-high {
+    color: var(--accent-success);
+}
+
+.confidence-medium {
+    color: var(--accent-warning);
+}
+
+.confidence-low {
+    color: var(--accent-danger);
+}
+
+.sample-size {
+    font-size: 10px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* EV 提示框 */
+.ev-alert {
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ev-alert.warning {
+    background: rgba(248, 81, 73, 0.15);
+    border: 1px solid var(--accent-danger);
+    color: var(--accent-danger);
+}
+
+.ev-alert.caution {
+    background: rgba(210, 153, 34, 0.15);
+    border: 1px solid var(--accent-warning);
+    color: var(--accent-warning);
+}
+
+.ev-alert.good {
+    background: rgba(63, 185, 80, 0.15);
+    border: 1px solid var(--accent-success);
+    color: var(--accent-success);
+}
+
 /* Alerts Section */
 .alerts-container {
     background: var(--bg-secondary);

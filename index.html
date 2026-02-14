@@ -223,8 +223,40 @@
                     <span class="section-badge">Polymarket 热门</span>
                 </div>
                 
+                <!-- 资金管理建议面板 -->
+                <div class="fund-management-panel">
+                    <h2>📊 资金管理建议</h2>
+                    <div class="fund-grid">
+                        <div class="fund-item">
+                            <span class="fund-label">建议仓位</span>
+                            <span class="fund-value" id="suggested-position">--</span>
+                        </div>
+                        <div class="fund-item">
+                            <span class="fund-label">最大单笔风险</span>
+                            <span class="fund-value negative" id="max-risk">--</span>
+                        </div>
+                        <div class="fund-item">
+                            <span class="fund-label">Kelly 比例</span>
+                            <span class="fund-value" id="kelly-ratio">--</span>
+                        </div>
+                        <div class="fund-item">
+                            <span class="fund-label">盈亏比阈值</span>
+                            <span class="fund-value positive" id="rr-threshold">≥2:1</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="prediction-grid" id="prediction-container">
                     <!-- 预测市场动态加载 -->
+                </div>
+                
+                <!-- 期望值分析说明 -->
+                <div class="ev-explanation">
+                    <h3>📈 期望值计算说明</h3>
+                    <div class="ev-formula">
+                        <code>期望值(EV) = 胜率 × 赔率 - (1 - 胜率) × 1</code>
+                    </div>
+                    <p>EV > 0 才有正期望，<span class="highlight-positive">绿色</span>表示正期望交易，<span class="highlight-negative">红色</span>表示负期望</p>
                 </div>
             </section>
 
